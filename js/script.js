@@ -593,9 +593,9 @@ function clearinputs (){
 sendBtn.addEventListener("click", function () {
     const nextElement = sendBtn.nextElementSibling;
     if (nextElement && nextElement.tagName.toLowerCase() === 'p') {
-        nextElement.style.display = "block";
+        nextElement.classList.remove("hidden");
         setTimeout(function () {
-            nextElement.style.display = "none";
+            nextElement.classList.add("hidden");
         }, 5000);
     }
     clearinputs();
