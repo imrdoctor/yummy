@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <link rel="stylesheet" href="css/output.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Yummy</title>
+        <!-- Website Icon -->
+        <link rel="icon" href="imgs/logo.png" />
+    </head>
+    <body class="bg-black">
+        <div class="sidebar fixed top-0 left-0 h-full flex z-10">
+            <div class="items bg-gray-800 h-full p-4 flex flex-col justify-between">
+                <div class="links">
+                    <a href="#" class="block py-2 px-4 text-white hide searchbtn">Search</a>
+                    <a href="#" class="block py-2 px-4 text-white hide category">Categories</a>
+                    <a href="#" class="block py-2 px-4 text-white hide arealink">Area</a>
+                    <a href="#" class="block py-2 px-4 text-white hide ingredientslink">Ingredients</a>
+                    <a href="#" class="block py-2 px-4 text-white hide contactlink">Contact Us</a>
+                </div>
+                <div class="footer text-white">
+                    <div class="icons">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="rights">
+                        <p>
+                            Copyright Â &copy; 2019 All Rights <br />
+                            Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="control bg-gray-200 flex flex-col justify-between p-4 items-center p-4">
+                <div class="logo">
+                    <img src="imgs/logo.png" alt="logo" class="w-12" />
+                </div>
+                <i class="fa-solid open-close-icon fa-align-justify fa-2x controlnav"></i>
+                <footer class="flex flex-col">
+                    <i class="fa-solid fa-globe d-block mb-2"></i>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </footer>
+            </div>
+        </div>
+        <main class="container mx-auto px-4 mt-8">
+            <div class="search grid grid-cols-1 md:grid-cols-2 gap-4 hidden">
+                <input
+                    aria-describedby="helper-text-explanation"
+                    class="searchname bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Serch By Name"
+                />
+                <input
+                    aria-describedby="helper-text-explanation"
+                    class="serchfirstletter bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-4 md:mt-0"
+                    placeholder="Serch By First letter"
+                />
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 home mt-8" id="mealList"></div>
+        </main>
+        <div class="container mx-auto" id="rowData">
+
+        </div>
+        <div class="loading fixed top-0 left-0 w-full h-full bg-black opacity-75 z-50 flex justify-center items-center">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+        </div>
+        <div class="aryea container mx-auto px-4 mt-8 text-white" id="rowCountryData">
+            <div class="items grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-5 hidden" id="countryButtons">
+                <!-- Add more country buttons here -->
+            </div>
+        </div>
+        <div class="ingredients hidden">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
+            </div>
+        </div>
+        
+        <div class="contactus container mx-auto w-3/5 hidden">
+            <div class="grid grid-cols-2 px- gap-8">
+                <div class="flex flex-col mb-6 username">
+                    <label for="username" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Enter your username</label>
+                    <input type="text" id="username" class="bg-gray-100 border text-gray-900 dark:text-gray-400 placeholder-gray-500 dark:placeholder-gray-300 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-gray-700 dark:border-gray-500" placeholder="Username">
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"><span class="font-medium">Oh, snapp!</span> Invalid Username. It must be letters only.</p>
+                </div>
+                <div class="flex flex-col mb-6 email">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Enter your email</label>
+                    <input type="email" id="email" class="bg-gray-100 border border-gray-300 text-gray-900 dark:text-gray-400 placeholder-gray-500 dark:placeholder-gray-300 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-gray-700 dark:border-gray-500" placeholder="Email">
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"><span class="font-medium">Oh, snapp!</span> Invalid Email format.</p>
+                </div>
+                <div class="flex flex-col mb-6 phone">
+                    <label for="phone" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Enter your phone</label>
+                    <input type="tel" id="phone" class="bg-gray-100 border border-gray-300 text-gray-900 dark:text-gray-400 placeholder-gray-500 dark:placeholder-gray-300 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-gray-700 dark:border-gray-500" placeholder="Phone">
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"><span class="font-medium">Oh, snapp!</span> Invalid Phone Number. It must be 10 digits.</p>
+                </div>
+                <div class="flex flex-col mb-6 age">
+                    <label for="age" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Enter your age</label>
+                    <input type="number" id="age" class="bg-gray-100 border border-gray-300 text-gray-900 dark:text-gray-400 placeholder-gray-500 dark:placeholder-gray-300 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-gray-700 dark:border-gray-500" placeholder="Age">
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"><span class="font-medium">Oh, snapp!</span> Invalid Age. It must be between 1 and 99.</p>
+                </div>
+                <div class="flex flex-col mb-6 password">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Enter your password</label>
+                    <input type="password" id="password" class="bg-gray-100 border border-gray-300 text-gray-900 dark:text-gray-400 placeholder-gray-500 dark:placeholder-gray-300 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-gray-700 dark:border-gray-500" placeholder="Password">
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"><span class="font-medium">Oh, snapp!</span> Password must be 7 digits long and include at least one letter.</p>
+                </div>
+                <div class="flex flex-col mb-6 repassword">
+                    <label for="repassword" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Re-enter your password</label>
+                    <input type="password" id="repassword" class="bg-gray-100 border border-gray-300 text-gray-900 dark:text-gray-400 placeholder-gray-500 dark:placeholder-gray-300 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-gray-700 dark:border-gray-500" placeholder="Re-enter Password">
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"><span class="font-medium">Oh, snapp!</span> Passwords do not match.</p>
+               </div>
+            </div>
+            <button disabled type="button" class="sendmasage text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 block mx-auto" style="margin: auto;">Send Message</button>
+            <p class="mt-2 text-sm text-green-600 dark:text-green-500 text-center hidden"><span class="font-medium">Done</span> Send Your Message</p>
+        </div>
+        
+        
+        
+        
+        
+        
+        <script src="js/script.js"></script>
+    </body>
+</html>
